@@ -6,16 +6,14 @@ export function Hero() {
   return (
     <>
       <section className="relative overflow-hidden bg-[#2683BA] text-white font-[Nunito,sans-serif]">
-        {/* Imagen de fondo SVG posicionada y adaptada para verse completa */}
-        <div className="absolute inset-0 z-0 flex justify-end items-center pointer-events-none">
+        {/* Imagen de fondo del perro */}
+        <div className="absolute inset-0 z-0">
           <img
-            src="/images/hero-banner.svg"
+            src="/images/hero.png"
             alt="Perro en portada"
-            className="w-full h-full object-cover object-[75%_center] md:object-contain md:object-right"
+            className="w-full h-full object-cover object-[80%_center] md:object-[right_center]"
           />
         </div>
-        {/* Sutil gradiente sobre el texto para máxima legibilidad */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#1b6b98]/85 via-[#1b6b98]/40 via-[45%] to-transparent to-[75%] md:from-[#2683BA]/75 md:via-transparent md:to-transparent pointer-events-none" />
         <div className="relative z-10 min-h-[650px] md:min-h-[640px] px-[22px] pt-[45px] pb-[350px] md:py-[100px] md:px-[max(5.2%,calc((100%_-_1080px)/2))]">
           <div className="w-full md:w-[47%] max-w-none md:max-w-[520px]">
             <div className="mb-4 md:mb-[26px] text-[9px] md:text-[10px] font-black uppercase tracking-[2px]">

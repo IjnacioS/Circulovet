@@ -40,3 +40,4 @@ Sitio web y landing page oficial de **Círculo Vet / Veterinaria Santa Raquel**,
    ```bash
    npm run typecheck
    ```
+
