@@ -1,0 +1,96 @@
+:root {
+  --navy: #0B2F57;
+  --sky: #7DD3FC;
+  --celeste-soft: #EEF8FD;
+}
+
+.site-nav,
+.urgent {
+  font-family: Nunito, sans-serif;
+}
+
+/* ---------- URGENCIAS ---------- */
+.urgent {
+  background: var(--navy);
+  color: #fff;
+  font-size: 13px;
+}
+.urgent-wrap {
+  max-width: 1120px;
+  margin: auto;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.urgent-phones {
+  margin-left: auto;
+}
+.urgent a {
+  font-weight: 800;
+  color: #fff;
+}
+
+/* ---------- NAV ---------- */
+.site-nav {
+  background: rgba(238, 248, 253, 0.96);
+  backdrop-filter: blur(8px);
+}
+.nav-inner {
+  max-width: 1120px;
+  margin: auto;
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand-name {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+  color: var(--navy);
+  white-space: nowrap;
+}
+.nav-links {
+  font-size: 13px;
+  font-weight: 600;
+  gap: 4px;
+  color: var(--navy);
+}
+.nav-links a {
+  white-space: nowrap;
+}
+.btn-primary {
+  display: inline-flex;
+  padding: 10px 18px;
+  border-radius: 4px;
+  background: var(--sky);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .nav-links {
+    gap: 2px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-inner {
+    padding: 18px 22px;
+  }
+  .urgent-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 20px 22px;
+  }
+  .urgent-phones {
+    margin-left: 0;
+  }
+}
