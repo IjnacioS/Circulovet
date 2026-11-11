@@ -21,11 +21,11 @@ export const CLINIC = {
 } as const
 
 export const NAV_ITEMS = [
-  { label: "Inicio", href: "#inicio" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Servicios", href: "#servicios" },
-  { label: "Prevención", href: "#prevencion" },
-  { label: "Equipo", href: "#equipo" },
-  { label: "Consejos", href: "#consejos" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Inicio", href: "/" },
+  { label: "Nosotros", href: "/#nosotros" },
+  { label: "Servicios", href: "/#servicios" },
+  { label: "Prevención", href: "/#prevencion" },
+  { label: "Equipo", href: "/equipo" },
+  { label: "Consejos", href: "/consejos" },
+  { label: "Contacto", href: "/#contacto" },
 ] as const

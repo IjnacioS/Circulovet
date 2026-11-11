@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link, useLocation } from "react-router-dom"
 import { Clock, Menu, MessageCircle, Phone, X } from "lucide-react"
 
 import { CLINIC, NAV_ITEMS } from "@/lib/site"
@@ -6,8 +7,29 @@ import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const location = useLocation()
 
   const closeMenu = () => setMenuOpen(false)
+
+  const handleNavClick = (href: string) => {
+    closeMenu()
+    if (href.startsWith("/#")) {
+      const hash = href.replace("/", "")
+      if (location.pathname === "/") {
+        const el = document.querySelector(hash)
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" })
+        }
+      }
+    }
+  }
+
+  const isActive = (href: string) => {
+    if (href === "/" && location.pathname === "/" && !location.hash) return true
+    if (href === "/equipo" && location.pathname === "/equipo") return true
+    if (href === "/consejos" && location.pathname === "/consejos") return true
+    return false
+  }
 
   return (
     <header className="sticky top-0 z-50">
@@ -36,8 +58,8 @@ export function SiteHeader() {
 
       <nav aria-label="Navegación principal" className="site-nav shadow-md">
         <div className="nav-inner">
-          <a
-            href="#inicio"
+          <Link
+            to="/"
             aria-label="Círculo Vet, ir al inicio"
             className="flex items-center gap-3"
             onClick={closeMenu}
@@ -47,18 +69,22 @@ export function SiteHeader() {
               Círculo Vet
               <span className="block text-xs font-semibold opacity-80">Veterinaria Santa Raquel</span>
             </span>
-          </a>
+          </Link>
 
           <ul className="nav-links hidden items-center min-[701px]:flex">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  aria-label={`Ir a la sección ${item.label}`}
-                  className="rounded-md px-3 py-2 transition-colors hover:text-[#0284C7]"
+                <Link
+                  to={item.href}
+                  onClick={() => handleNavClick(item.href)}
+                  aria-label={`Ir a ${item.label}`}
+                  className={cn(
+                    "rounded-md px-3 py-2 transition-colors hover:text-[#0284C7]",
+                    isActive(item.href) && "font-bold text-[#0284C7] underline underline-offset-4"
+                  )}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -98,14 +124,17 @@ export function SiteHeader() {
           <ul className="flex flex-col px-4 py-3">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  aria-label={`Ir a la sección ${item.label}`}
-                  onClick={closeMenu}
-                  className="block rounded-md px-3 py-3 text-base font-semibold hover:bg-sky-100 hover:text-[#0284C7]"
+                <Link
+                  to={item.href}
+                  aria-label={`Ir a ${item.label}`}
+                  onClick={() => handleNavClick(item.href)}
+                  className={cn(
+                    "block rounded-md px-3 py-3 text-base font-semibold hover:bg-sky-100 hover:text-[#0284C7]",
+                    isActive(item.href) && "bg-sky-50 font-bold text-[#0284C7]"
+                  )}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

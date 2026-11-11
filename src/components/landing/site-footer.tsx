@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { CLINIC, NAV_ITEMS } from "@/lib/site"
 
 export function SiteFooter() {
@@ -17,13 +18,13 @@ export function SiteFooter() {
           <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  aria-label={`Ir a la sección ${item.label}`}
+                <Link
+                  to={item.href}
+                  aria-label={`Ir a ${item.label}`}
                   className="transition-colors hover:text-cyan-300"
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
