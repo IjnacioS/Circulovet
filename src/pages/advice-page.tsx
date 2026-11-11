@@ -37,6 +37,7 @@ function ArticleCard({ article }: { article: AdviceArticle }) {
           src={article.image}
           alt={article.imageAlt}
           loading="lazy"
+          decoding="async"
           className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute top-4 left-4 flex flex-wrap gap-2">

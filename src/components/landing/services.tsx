@@ -82,6 +82,7 @@ export function Services() {
                       src={service.image}
                       alt={service.imageAlt}
                       loading="lazy"
+                      decoding="async"
                       className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <span className="absolute left-4 top-4 inline-flex size-12 items-center justify-center rounded-xl bg-cyan-400 text-teal-950 shadow-lg">
@@ -104,6 +105,7 @@ export function Services() {
                 src={img("39611722")}
                 alt="Gato en una tienda de productos para mascotas"
                 loading="lazy"
+                decoding="async"
                 className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>

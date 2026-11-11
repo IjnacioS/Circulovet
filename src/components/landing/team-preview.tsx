@@ -56,6 +56,7 @@ export function TeamPreview() {
                       src={photoPathOf(member.name)}
                       alt={`Foto de ${member.name}`}
                       loading="lazy"
+                      decoding="async"
                       onError={(e) => {
                         e.currentTarget.style.display = "none"
                         e.currentTarget.nextElementSibling?.classList.remove("hidden")

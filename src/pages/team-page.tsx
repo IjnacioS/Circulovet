@@ -58,6 +58,7 @@ function TeamAvatar({ name }: { name: string }) {
       src={photoPathOf(name)}
       alt={`Fotografía de ${name}`}
       loading="lazy"
+      decoding="async"
       onError={() => setFailed(true)}
       className="size-20 shrink-0 rounded-2xl object-cover ring-2 ring-cyan-200 shadow-md"
     />

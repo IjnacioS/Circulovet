@@ -1,12 +1,22 @@
+import { lazy, Suspense } from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import "@/components/landing/site-header.css"
 import { SiteHeader } from "@/components/landing/site-header"
 import { SiteFooter } from "@/components/landing/site-footer"
 import { WhatsAppFloat } from "@/components/landing/whatsapp-float"
 import { ScrollToTop } from "@/components/common/scroll-to-top"
-import { HomePage } from "@/pages/home-page"
-import { TeamPage } from "@/pages/team-page"
-import { AdvicePage } from "@/pages/advice-page"
+
+const HomePage = lazy(() => import("@/pages/home-page").then((m) => ({ default: m.HomePage })))
+const TeamPage = lazy(() => import("@/pages/team-page").then((m) => ({ default: m.TeamPage })))
+const AdvicePage = lazy(() => import("@/pages/advice-page").then((m) => ({ default: m.AdvicePage })))
+
+function PageLoading() {
+  return (
+    <div className="flex min-h-[50vh] items-center justify-center" aria-live="polite" aria-busy="true">
+      <div className="size-8 animate-spin rounded-full border-4 border-teal-200 border-t-cyan-500" />
+    </div>
+  )
+}
 
 export function App() {
   return (
@@ -21,12 +31,14 @@ export function App() {
         </a>
         <SiteHeader />
         <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/equipo" element={<TeamPage />} />
-            <Route path="/consejos" element={<AdvicePage />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <Suspense fallback={<PageLoading />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/equipo" element={<TeamPage />} />
+              <Route path="/consejos" element={<AdvicePage />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
         </main>
         <SiteFooter />
         <WhatsAppFloat />

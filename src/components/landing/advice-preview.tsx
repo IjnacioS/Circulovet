@@ -36,6 +36,7 @@ export function AdvicePreview() {
                     src={article.image}
                     alt={article.imageAlt}
                     loading="lazy"
+                    decoding="async"
                     className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <span className="absolute top-3 left-3 rounded-full bg-white/95 px-3 py-1 text-xs font-bold text-teal-900 shadow-xs backdrop-blur">

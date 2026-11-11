@@ -64,7 +64,14 @@ export function SiteHeader() {
             className="flex items-center gap-3"
             onClick={closeMenu}
           >
-            <img src="/logo.png" alt="Logo Círculo Vet" className="h-12 w-auto object-contain rounded-full bg-white p-0.5" />
+            <img
+              src="/logo.png"
+              alt="Logo Círculo Vet"
+              width={48}
+              height={48}
+              decoding="async"
+              className="h-12 w-auto object-contain rounded-full bg-white p-0.5"
+            />
             <span className="brand-name hidden leading-tight sm:block">
               Círculo Vet
               <span className="block text-xs font-semibold opacity-80">Veterinaria Santa Raquel</span>

@@ -55,6 +55,7 @@ export function History() {
               src={HISTORY_IMAGE}
               alt="Instalaciones de la clínica Círculo Vet con equipo veterinario"
               loading="lazy"
+              decoding="async"
               className="aspect-[4/3] w-full rounded-3xl object-cover shadow-2xl"
             />
             <div className="absolute -bottom-6 -right-4 rounded-2xl bg-teal-900 px-6 py-4 text-white shadow-xl sm:right-8">
