@@ -65,7 +65,7 @@ export function SiteHeader() {
             onClick={closeMenu}
           >
             <img
-              src="/logo.png"
+              src="/logo.svg"
               alt="Logo Círculo Vet"
               width={48}
               height={48}
@@ -73,8 +73,8 @@ export function SiteHeader() {
               className="h-12 w-auto object-contain rounded-full bg-white p-0.5"
             />
             <span className="brand-name hidden leading-tight sm:block">
-              Círculo Vet
-              <span className="block text-xs font-semibold opacity-80">Veterinaria Santa Raquel</span>
+              Veterinaria
+              <span className="block text-xs font-semibold opacity-80">Santa Raquel</span>
             </span>
           </Link>
 
